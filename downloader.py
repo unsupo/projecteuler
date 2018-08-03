@@ -29,11 +29,11 @@ def createProblem(num):
     readme=directory+"/README.md"
     contents="# "+title[0].string+"\n"
     stuff=soup.select("#content > div.problem_content > p")
-    stuff = "\n".join([i.string for i in stuff])
+    stuff = u"\n".join([i.string for i in stuff])
     contents+=stuff
     if not os.path.exists(readme):
         f=open(readme,'w+')
-        f.write(contents)
+        f.write(contents.encode('utf-8'))
     dir=directory+"/python"
     pyfile=dir+"/answer.py"
     if not os.path.exists(dir):
@@ -43,4 +43,4 @@ def createProblem(num):
         f.write(c)
 
 if __name__ == '__main__':
-    createProblem(2)
+    createProblem(4)
