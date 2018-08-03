@@ -10,3 +10,5 @@ tester.py will run through each problem_* folder
 and run the python/answer.main() method and compare
 the answers to answers.txt and display if the answer is correct ornot
 
+The goal is to eventually answer all the questions correctly and
+done so with multiple programming languages
