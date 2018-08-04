@@ -1,4 +1,4 @@
-import importlib
+from timeit import default_timer as timer
 import os
 import re
 import sys
@@ -28,9 +28,12 @@ if __name__ == '__main__':
         import answer as f
         reload(f)
         ans=getAnswer(int(i.replace("problem_","")))
+        start = timer()
         a=str(f.main())
+        end = timer()
         if ans == a:
             print "\tCorrect:\t"+a
+            print "\tTotal Time:\t"+str(end - start)
         else:
             print "\tWrong:\tcorrect="+ans+"\tyours="+a
         sys.path=sys.path[1:]

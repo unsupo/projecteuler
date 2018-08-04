@@ -29,7 +29,7 @@ def createProblem(num):
     readme=directory+"/README.md"
     contents="# "+title[0].string+"\n"
     stuff=soup.select("#content > div.problem_content > p")
-    stuff = u"\n".join([i.string for i in stuff])
+    stuff = u"\n".join([i.text for i in stuff])
     contents+=stuff
     if not os.path.exists(readme):
         f=open(readme,'w+')
@@ -43,4 +43,4 @@ def createProblem(num):
         f.write(c)
 
 if __name__ == '__main__':
-    createProblem(4)
+    createProblem(5)
