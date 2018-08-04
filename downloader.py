@@ -58,4 +58,4 @@ def createProblem(num):
         f.write(c.replace(replacer,str(num)))
 
 if __name__ == '__main__':
-    createProblem(8)
+    createProblem(9)
