@@ -19,7 +19,6 @@ def smallestMultiple(min=1,max=10):
 
 def smallestMult(min=1,max=10):
     #https://www.mathblog.dk/project-euler-problem-5/
-    import sys
     import os
     import math
     import imp

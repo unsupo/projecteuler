@@ -7,12 +7,27 @@ baseurl='https://projecteuler.net/'
 problem='problem='
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+replacer="replaceme328923"
 c="""
 def main():
     return 1
 
+def checkAnswer():
+    import os
+    import imp
+    f= os.path.dirname(os.path.realpath(__file__))
+    f+="/../../"
+    with open(f+"/tester.py") as source:
+        ff = imp.load_module("tester", source, "../../", ('', '', imp.PY_SOURCE))
+    return ff.getAnswer("""+replacer+""")
+    
 if __name__ == '__main__':
-    print main()
+    n=main()
+    a=checkAnswer()
+    if a == str(n):
+        print "Correct"
+    else: print "Wrong, Correct is: "+a 
+    print n
 """
 
 
@@ -40,7 +55,7 @@ def createProblem(num):
         os.makedirs(dir)
     if not os.path.exists(pyfile):
         f=open(pyfile,"w+")
-        f.write(c)
+        f.write(c.replace(replacer,str(num)))
 
 if __name__ == '__main__':
-    createProblem(5)
+    createProblem(8)

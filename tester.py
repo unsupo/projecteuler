@@ -35,6 +35,6 @@ if __name__ == '__main__':
             print "\tCorrect:\t"+a
             print "\tTotal Time:\t"+str(end - start)
         else:
-            print "\tWrong:\tcorrect="+ans+"\tyours="+a
+            print "<--------->\n\tWrong:\tcorrect="+ans+"\tyours="+a+"\n<--------->"
         sys.path=sys.path[1:]
 
