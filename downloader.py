@@ -9,17 +9,21 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 replacer="replaceme328923"
 c="""
+import os
+import imp
+f= os.path.dirname(os.path.realpath(__file__))
+f+="/../../"
+
+def getMethod(p,m):
+    with open(f+p+"/"+m+".py") as source:
+        ff = imp.load_module(m, source, "../", ('', '', imp.PY_SOURCE))
+    return ff
+
 def main():
     return 1
 
 def checkAnswer():
-    import os
-    import imp
-    f= os.path.dirname(os.path.realpath(__file__))
-    f+="/../../"
-    with open(f+"/tester.py") as source:
-        ff = imp.load_module("tester", source, "../../", ('', '', imp.PY_SOURCE))
-    return ff.getAnswer("""+replacer+""")
+    return getMethod("/","tester").getAnswer("""+replacer+""")
     
 if __name__ == '__main__':
     n=main()
@@ -58,4 +62,4 @@ def createProblem(num):
         f.write(c.replace(replacer,str(num)))
 
 if __name__ == '__main__':
-    createProblem(9)
+    createProblem(12)
