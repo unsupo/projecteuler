@@ -9,6 +9,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 replacer="replaceme328923"
 c="""
+from timeit import default_timer as timer
 import os
 import imp
 f= os.path.dirname(os.path.realpath(__file__))
@@ -25,12 +26,15 @@ def main():
 def checkAnswer():
     return getMethod("/","tester").getAnswer("""+replacer+""")
     
-if __name__ == '__main__':
-    n=main()
+if __name__ == '__main__':    
+    start = timer()
+    n=str(main())
+    end = timer()
     a=checkAnswer()
     if a == str(n):
         print "Correct"
-    else: print "Wrong, Correct is: "+a 
+        print "\tTotal Time:\t"+str(end - start)
+    else: print "Wrong, Correct is: "+a
     print n
 """
 
@@ -62,4 +66,4 @@ def createProblem(num):
         f.write(c.replace(replacer,str(num)))
 
 if __name__ == '__main__':
-    createProblem(12)
+    createProblem(13)
