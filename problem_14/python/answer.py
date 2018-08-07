@@ -12,7 +12,7 @@ def getMethod(p,m):
 
 def collatzFunc(n):
     if n % 2 == 0:
-        return int(n/2)
+        return n/2
     return 3 * n + 1
 
 memoize={}
