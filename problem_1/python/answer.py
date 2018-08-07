@@ -5,13 +5,16 @@ def sum(v):
         s+=i
     return s
 
-def multiples(max=10,l=[3,5]):
-    m=[]
+def multiples(max=10,mults=[3,5]):
+    s=0
     for i in range(1,max):
-        for j in l:
-            if i%j==0:
-                m.append(i)
-    return sum(list(set(m)))
+        isMult=False
+        for mu in mults:
+            if i % mu == 0:
+                isMult=True
+        if isMult:
+            s+=i
+    return s
 
 def main():
     return multiples(max=1000)

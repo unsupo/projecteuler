@@ -2,3 +2,5 @@
 *.iml
 c
 *.pyc
+target
+*.class
